@@ -16,10 +16,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    Button InicioSecionBtn, RegistrarseBtn;
-    TextView EmailTxt, Passwordtxt;
+    private Button InicioSecionBtn, RegistrarseBtn;
+    public static TextView EmailTxt, Passwordtxt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +54,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
+                                DataBaseConector.guardarUsuario();
                                 Home_ActivityStart();
                             }else{
                                 Error();
@@ -79,4 +84,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void Error(){
         new AlertDialog.Builder(this).setTitle("ERROR").setMessage("Ah Ocurrido un error al autenticar al Usuario").setPositiveButton("OK",null).show();
     }
+
 }
