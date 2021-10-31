@@ -15,11 +15,13 @@ import com.google.firebase.auth.FirebaseAuth;
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
     Button BtnFragPersonal,BtnFragCouch,BtnFragNutri;
     FloatingActionButton btnSalir;
+    public static String EmailIngresado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         setTitle("SAYA-GYM");
+        EmailIngresado = getIntent().getExtras().getString("Email");
         btnSalir = findViewById(R.id.SalirBtn);
         BtnFragPersonal = findViewById(R.id.BtnFragPersonal);
         BtnFragCouch = findViewById(R.id.BtnFragCouch);

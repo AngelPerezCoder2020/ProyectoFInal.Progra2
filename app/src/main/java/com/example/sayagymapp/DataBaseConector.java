@@ -4,6 +4,7 @@ import android.widget.TextView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -63,5 +64,11 @@ public class DataBaseConector {
         Query query = db.collection("Couches");
         FirestoreRecyclerOptions<Couch> estacosa = new FirestoreRecyclerOptions.Builder<Couch>().setQuery(query,Couch.class).build();
         return estacosa;
+    }
+    public static void EstablecerEntrenador(String couch){
+        DocumentReference couchEscogido = db.collection("Couches").document(couch);
+        Map<String, Object> map = new HashMap<>();
+        map.put("Couch",couchEscogido);
+        db.collection("Usuarios").document(HomeActivity.EmailIngresado).set(map);
     }
 }
