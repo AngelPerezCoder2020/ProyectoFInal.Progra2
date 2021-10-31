@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SayaGymApp</string>
+    <string name="Boton_Login">Iniciar Seción</string>
+    <string name="Boton_Registrarse">Registrarse</string>
+    <string name="BotonPersonal">Personal</string>
+    <string name="BotonCouching">Couching</string>
+    <string name="BotonNutricion">Nutricion</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

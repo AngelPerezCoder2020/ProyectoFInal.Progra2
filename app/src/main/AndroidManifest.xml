@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SayaGymApp">
         <activity
-            android:name=".SegundaActiviti"
+            android:name=".HomeActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

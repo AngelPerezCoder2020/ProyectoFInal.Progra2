@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "586551559045",
+    "project_id": "proyectofinalprogra2-adda3",
+    "storage_bucket": "proyectofinalprogra2-adda3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586551559045:android:57d534626ae4900f8efaec",
+        "android_client_info": {
+          "package_name": "com.example.sayagymapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586551559045-6fc0tsts68m81e8kvv485gh4qk46sm71.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcl_UhlNDcnR7B9ndP19xLFh9rPWS4OCg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586551559045-6fc0tsts68m81e8kvv485gh4qk46sm71.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
