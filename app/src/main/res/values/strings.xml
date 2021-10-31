@@ -7,4 +7,10 @@
     <string name="BotonNutricion">Nutricion</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="BotonEntrenador">Entrenador</string>
+    <string name="BotonRutinas">Rutinas</string>
+    <string name="BotonRegistro">Registro</string>
+    <string name="BotonDietas">Dietas</string>
+    <string name="BotonDatos">Info. Personal</string>
+    <string name="BotonAvances">Avances</string>
 </resources>

@@ -3,13 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/angel/AndroidStudioProjects/SayaGymApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/SayaGymApp/app/src/main/res/layout/Home_activity.xml" value="0.1" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/SayaGymApp/app/src/main/res/layout/activity_home.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/SayaGymApp/app/src/main/res/layout/activity_login.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/SayaGymApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/angel/AndroidStudioProjects/SayaGymApp/app/src/main/res/layout/fragment_couch.xml" value="0.1" />
-        <entry key="..\:/Users/angel/AndroidStudioProjects/SayaGymApp/app/src/main/res/layout/fragment_nutricion.xml" value="0.1" />
-        <entry key="..\:/Users/angel/AndroidStudioProjects/SayaGymApp/app/src/main/res/layout/fragment_personal.xml" value="0.1" />
+        <entry key="..\:/Users/angel/AndroidStudioProjects/SayaGymApp/app/src/main/res/layout/fragment_couch.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/angel/AndroidStudioProjects/SayaGymApp/app/src/main/res/layout/fragment_nutricion.xml" value="0.22" />
+        <entry key="..\:/Users/angel/AndroidStudioProjects/SayaGymApp/app/src/main/res/layout/fragment_personal.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/SayaGymApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/SayaGymApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.21614583333333334" />
       </map>

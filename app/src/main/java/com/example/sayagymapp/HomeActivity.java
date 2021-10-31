@@ -3,6 +3,7 @@ package com.example.sayagymapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.graphics.ColorSpace;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +26,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         BtnFragCouch.setOnClickListener(this);
         BtnFragNutri.setOnClickListener(this);
         BtnFragPersonal.setOnClickListener(this);
-        getSupportFragmentManager().beginTransaction().add(R.id.ContenedorActivity2,new CouchFragment()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.ContenedorActivity2,new PersonalFragment()).commit();
         btnSalir.setOnClickListener(view->{
             FirebaseAuth.getInstance().signOut();
             finish();
