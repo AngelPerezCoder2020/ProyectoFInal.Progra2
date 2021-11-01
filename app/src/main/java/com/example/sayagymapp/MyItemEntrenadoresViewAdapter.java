@@ -21,7 +21,7 @@ import java.util.List;
  * {@link RecyclerView.Adapter} that can display a {@link PlaceholderItem}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class MyItemEntrenadoresViewAdapter extends FirestoreRecyclerAdapter<Couch,MyItemEntrenadoresViewAdapter.ViewHolder> implements View.OnClickListener{
+public class MyItemEntrenadoresViewAdapter extends FirestoreRecyclerAdapter<Couch,MyItemEntrenadoresViewAdapter.ViewHolder>{
 
     public MyItemEntrenadoresViewAdapter(@NonNull FirestoreRecyclerOptions<Couch> options) {
         super(options);
@@ -45,6 +45,7 @@ public class MyItemEntrenadoresViewAdapter extends FirestoreRecyclerAdapter<Couc
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 DataBaseConector.EstablecerEntrenador(couch.getNombre());
+                                DataBaseConector.ObtenerReferencia(v.getContext());
                             }
                         })
                         .setNegativeButton("no",null)
@@ -52,12 +53,6 @@ public class MyItemEntrenadoresViewAdapter extends FirestoreRecyclerAdapter<Couc
             }
         });
     }
-
-    @Override
-    public void onClick(View v) {
-
-    }
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView Nombre;
 

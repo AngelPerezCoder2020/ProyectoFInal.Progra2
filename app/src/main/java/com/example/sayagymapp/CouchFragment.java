@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -77,6 +78,24 @@ public class CouchFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-
+        Boolean permiso = true;
+        Fragment poner = null;
+        int id = v.getId();
+        if(id==R.id.BotonEntrenadoresList){
+            poner = new FragmentListEntrenadores();
+        }else if(id==R.id.BotonRutinasList){
+            if(DataBaseConector.ObtenerRutinas() != null){
+                poner = new RutinasListFragment();
+            }else{
+                permiso = false;
+            }
+        }else if(id==R.id.RegistroBotonList){
+            //Fragmento de Registro Asistencia
+        }
+        if(permiso){
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.ContenedorFrag,poner).commit();
+        }else{
+            Toast.makeText(getActivity(),"Aún no Se ah Seleccionado ningún Entrenador Personal",Toast.LENGTH_LONG).show();
+        }
     }
 }

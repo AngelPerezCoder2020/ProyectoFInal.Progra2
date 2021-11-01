@@ -1,9 +1,17 @@
 package com.example.sayagymapp;
 
+import android.content.Context;
+import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.common.collect.ArrayTable;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -23,6 +31,7 @@ public class DataBaseConector {
     public static FirebaseFirestore db = FirebaseFirestore.getInstance();
     public static ArrayList<Rutina> Rutinas = new ArrayList<Rutina>();
     public static ArrayList<Comida> Dieta = new ArrayList<Comida>();
+    public static ArrayList<HashMap> RutinasObtenidas;
     public static void guardarUsuario(){
         Map<String, Object> map = new HashMap<>();
         map.put("Couch","");
@@ -48,12 +57,12 @@ public class DataBaseConector {
        }
     }
     public static void llenarListas(){
-        Rutinas.add(new Rutina("4x10 Press Plano","4x10 Press Inclinado","4x10 Press Plano Mancuernas","4x10 Press Inclinado Mancuernas","4X10 Despechadas"));
-        Rutinas.add(new Rutina("4X10 Curl Biceps Mancuerna","4X10 Martillo","4X10 Curl Biceos Barra","4X10 Predicador","4X10 Curl Biceps con Maquina"));
-        Rutinas.add(new Rutina("4x10 Maquina1","4x10 Maquina2","4x10 Maquina3","4x10 Remo","4x10 Serrucho"));
-        Rutinas.add(new Rutina("4X10 Triceps Junto","4X10 Triceps Individual","4X10 Jalon con Cuerda","4X10 Jalon con UVE","4X10 Jalon con Barra"));
-        Rutinas.add(new Rutina("4X10 Desplantes","4X10 Mounstruo","4X10 Sentadillas","4X10 Maquina Sentado","4X10 Maquina Acostado"));
-        Rutinas.add(new Rutina("4X10 Hombros con Mancuerna","4X10 Levantamiento Vertical","4X10 Levantamiento Horizontal","4X10 Levantamiento Con Maquina","4X10 Levantamiento con Barra"));
+        Rutinas.add(new Rutina("Rutina Pecho","4x10 Press Plano","4x10 Press Inclinado","4x10 Press Plano Mancuernas","4x10 Press Inclinado Mancuernas","4X10 Despechadas"));
+        Rutinas.add(new Rutina("Rutina Biceps","4X10 Curl Biceps Mancuerna","4X10 Martillo","4X10 Curl Biceos Barra","4X10 Predicador","4X10 Curl Biceps con Maquina"));
+        Rutinas.add(new Rutina("Rutina Espalda","4x10 Maquina1","4x10 Maquina2","4x10 Maquina3","4x10 Remo","4x10 Serrucho"));
+        Rutinas.add(new Rutina("Rutina Triceps","4X10 Triceps Junto","4X10 Triceps Individual","4X10 Jalon con Cuerda","4X10 Jalon con UVE","4X10 Jalon con Barra"));
+        Rutinas.add(new Rutina("Rutina Pierna","4X10 Desplantes","4X10 Mounstruo","4X10 Sentadillas","4X10 Maquina Sentado","4X10 Maquina Acostado"));
+        Rutinas.add(new Rutina("Rutina Hombros","4X10 Hombros con Mancuerna","4X10 Levantamiento Vertical","4X10 Levantamiento Horizontal","4X10 Levantamiento Con Maquina","4X10 Levantamiento con Barra"));
         Dieta.add(new Comida("Pan integral con tomate y aguacate."));
         Dieta.add(new Comida("Un yogur con un puñado de nueces."));
         Dieta.add(new Comida("Ensalada completa de pimientos, tomate, cebolla, garbanzos y huevo duro."));
@@ -70,5 +79,50 @@ public class DataBaseConector {
         Map<String, Object> map = new HashMap<>();
         map.put("Couch",couchEscogido);
         db.collection("Usuarios").document(HomeActivity.EmailIngresado).set(map);
+    }
+
+    public static ArrayList<Rutina> getCouchRutinas(){
+        llenarListas();
+        return Rutinas;
+    }
+    public static void ObtenerReferencia(Context cnt){
+        DocumentReference docRef = db.collection("Usuarios").document(HomeActivity.EmailIngresado);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        DocumentReference referencia2 = (DocumentReference)document.getData().get("Couch");
+                        GuargarRutinas(referencia2);
+                    } else {
+                        Toast.makeText(cnt,"El Usuario: "+HomeActivity.EmailIngresado+" no Existe en la base de datos",Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(cnt,task.getException().toString(),Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+    public static void GuargarRutinas(DocumentReference ref){
+        llenarListas();
+        ref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        RutinasObtenidas = (ArrayList<HashMap>) document.getData().get("Rutinas");
+                    } else {
+                        Log.d("APPLICACION", "No such document");
+                    }
+                } else {
+                    Log.d("APPLICACION", "get failed with ", task.getException());
+                }
+            }
+        });
+    }
+    public static ArrayList<HashMap> ObtenerRutinas(){
+        return RutinasObtenidas;
     }
 }

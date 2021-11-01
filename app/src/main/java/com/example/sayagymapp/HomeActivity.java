@@ -20,8 +20,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        setTitle("SAYA-GYM");
         EmailIngresado = getIntent().getExtras().getString("Email");
+        DataBaseConector.ObtenerReferencia(this);
+        setTitle("SAYA-GYM");
         btnSalir = findViewById(R.id.SalirBtn);
         BtnFragPersonal = findViewById(R.id.BtnFragPersonal);
         BtnFragCouch = findViewById(R.id.BtnFragCouch);
