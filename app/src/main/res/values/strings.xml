@@ -14,4 +14,5 @@
     <string name="BotonDatos">Info. Personal</string>
     <string name="BotonAvances">Avances</string>
     <string name="button_invitado">UNETE COMO INVITADO</string>
+    <string name="button_olvidasteContraseña">¿OLVIDASTE TU CONTRASEÑA?</string>
 </resources>

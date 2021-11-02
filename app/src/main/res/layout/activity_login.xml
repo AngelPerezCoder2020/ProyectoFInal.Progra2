@@ -30,7 +30,7 @@
         android:id="@+id/PasswordTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="48dp"
         android:backgroundTint="#F6F4F4"
         android:ems="10"
         android:hint="Contraseña"
@@ -45,15 +45,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EmailTextView" />
 
+
     <Button
         android:id="@+id/RegistrarseButton"
         android:layout_width="168dp"
         android:layout_height="56dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="16dp"
         android:background="#FF9800"
         android:backgroundTint="@color/naranja"
-
         android:text="@string/Boton_Registrarse"
         android:textColor="#EFD80E"
         android:textSize="16sp"
@@ -83,7 +83,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PasswordTextView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.218" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -107,9 +107,21 @@
         android:textColorLink="#F6DE09"
         android:textSize="16sp"
         android:textStyle="bold"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RegistrarseButton" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_olvidasteContraseña"
+        style="?attr/materialButtonOutlinedStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
