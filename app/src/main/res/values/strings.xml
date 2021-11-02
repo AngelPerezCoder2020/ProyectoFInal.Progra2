@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">SayaGymApp</string>
-    <string name="Boton_Login">Iniciar Seción</string>
+    <string name="Boton_Login">Iniciar Sesión</string>
     <string name="Boton_Registrarse">Registrarse</string>
     <string name="BotonPersonal">Personal</string>
     <string name="BotonCouching">Couching</string>
@@ -13,4 +13,5 @@
     <string name="BotonDietas">Dietas</string>
     <string name="BotonDatos">Info. Personal</string>
     <string name="BotonAvances">Avances</string>
+    <string name="button_invitado">UNETE COMO INVITADO</string>
 </resources>
