@@ -1,37 +1,34 @@
-package com.example.sayagymapp;
+package com.example.sayagymapp.DataBaseConectorPackage;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.sayagymapp.ActivitiesPrincipales.HomeActivity;
+import com.example.sayagymapp.ActivitiesPrincipales.LoginActivity;
+import com.example.sayagymapp.ClasesSecundarias.Comida;
+import com.example.sayagymapp.ClasesSecundarias.Couch;
+import com.example.sayagymapp.ClasesSecundarias.Rutina;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.common.collect.ArrayTable;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
-
-import org.w3c.dom.Document;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.crypto.AEADBadTagException;
-
 public class DataBaseConector {
     public static FirebaseFirestore db = FirebaseFirestore.getInstance();
     public static ArrayList<Rutina> Rutinas = new ArrayList<Rutina>();
     public static ArrayList<Comida> Dieta = new ArrayList<Comida>();
-    public static ArrayList<HashMap> RutinasObtenidas;
+    public static ArrayList<HashMap> RutinasObtenidas, DietasObtenidas;
     public static void guardarUsuario(){
         Map<String, Object> map = new HashMap<>();
         map.put("Couch","");
@@ -63,11 +60,11 @@ public class DataBaseConector {
         Rutinas.add(new Rutina("Rutina Triceps","4X10 Triceps Junto","4X10 Triceps Individual","4X10 Jalon con Cuerda","4X10 Jalon con UVE","4X10 Jalon con Barra"));
         Rutinas.add(new Rutina("Rutina Pierna","4X10 Desplantes","4X10 Mounstruo","4X10 Sentadillas","4X10 Maquina Sentado","4X10 Maquina Acostado"));
         Rutinas.add(new Rutina("Rutina Hombros","4X10 Hombros con Mancuerna","4X10 Levantamiento Vertical","4X10 Levantamiento Horizontal","4X10 Levantamiento Con Maquina","4X10 Levantamiento con Barra"));
-        Dieta.add(new Comida("Pan integral con tomate y aguacate."));
-        Dieta.add(new Comida("Un yogur con un puñado de nueces."));
-        Dieta.add(new Comida("Ensalada completa de pimientos, tomate, cebolla, garbanzos y huevo duro."));
-        Dieta.add(new Comida("Leche con avena. Una pera."));
-        Dieta.add(new Comida("Plato de col con patata, Lenguado a la plancha."));
+        Dieta.add(new Comida("Desayuno","Pan integral con tomate y aguacate."));
+        Dieta.add(new Comida("Media Mañana","Un yogur con un puñado de nueces."));
+        Dieta.add(new Comida("Almuerzo","Ensalada completa de pimientos, tomate, cebolla, garbanzos y huevo duro."));
+        Dieta.add(new Comida("Refacción","Leche con avena. Una pera."));
+        Dieta.add(new Comida("Cena","Plato de col con patata, Lenguado a la plancha."));
     }
     public static FirestoreRecyclerOptions ObtenerEntrenadores(){
         Query query = db.collection("Couches");
@@ -93,8 +90,13 @@ public class DataBaseConector {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        DocumentReference referencia2 = (DocumentReference)document.getData().get("Couch");
-                        GuargarRutinas(referencia2);
+                        if(document.getData().get("Couch")==""){
+                            RutinasObtenidas = null;
+                            DietasObtenidas = null;
+                        }else{
+                            DocumentReference referencia = (DocumentReference)document.getData().get("Couch");
+                            GuargarRutinasyDietas(referencia);
+                        }
                     } else {
                         Toast.makeText(cnt,"El Usuario: "+HomeActivity.EmailIngresado+" no Existe en la base de datos",Toast.LENGTH_LONG).show();
                     }
@@ -104,8 +106,7 @@ public class DataBaseConector {
             }
         });
     }
-    public static void GuargarRutinas(DocumentReference ref){
-        llenarListas();
+    public static void GuargarRutinasyDietas(DocumentReference ref){
         ref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -113,6 +114,7 @@ public class DataBaseConector {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         RutinasObtenidas = (ArrayList<HashMap>) document.getData().get("Rutinas");
+                        DietasObtenidas = (ArrayList<HashMap>) document.getData().get("Dietas");
                     } else {
                         Log.d("APPLICACION", "No such document");
                     }
@@ -124,5 +126,8 @@ public class DataBaseConector {
     }
     public static ArrayList<HashMap> ObtenerRutinas(){
         return RutinasObtenidas;
+    }
+    public static ArrayList<HashMap> ObtenerDietas(){
+        return DietasObtenidas;
     }
 }

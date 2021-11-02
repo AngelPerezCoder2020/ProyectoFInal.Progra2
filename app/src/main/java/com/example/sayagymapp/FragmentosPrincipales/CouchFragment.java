@@ -1,4 +1,4 @@
-package com.example.sayagymapp;
+package com.example.sayagymapp.FragmentosPrincipales;
 
 import android.os.Bundle;
 
@@ -8,8 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.Toast;
+
+import com.example.sayagymapp.DataBaseConectorPackage.DataBaseConector;
+import com.example.sayagymapp.FragmentosSecundarios.FragmentListEntrenadores;
+import com.example.sayagymapp.R;
+import com.example.sayagymapp.FragmentosSecundarios.RutinasListFragment;
 
 /**
  * A simple {@link Fragment} subclass.

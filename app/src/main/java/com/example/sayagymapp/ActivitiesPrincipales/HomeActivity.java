@@ -1,14 +1,17 @@
-package com.example.sayagymapp;
+package com.example.sayagymapp.ActivitiesPrincipales;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.graphics.Color;
-import android.graphics.ColorSpace;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.sayagymapp.FragmentosPrincipales.CouchFragment;
+import com.example.sayagymapp.DataBaseConectorPackage.DataBaseConector;
+import com.example.sayagymapp.FragmentosPrincipales.NutricionFragment;
+import com.example.sayagymapp.FragmentosPrincipales.PersonalFragment;
+import com.example.sayagymapp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 

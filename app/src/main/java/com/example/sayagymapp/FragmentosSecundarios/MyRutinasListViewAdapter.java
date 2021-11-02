@@ -1,4 +1,4 @@
-package com.example.sayagymapp;
+package com.example.sayagymapp.FragmentosSecundarios;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -7,19 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.sayagymapp.placeholder.PlaceholderContent.PlaceholderItem;
-import com.example.sayagymapp.databinding.FragmentRutinasListBinding;
-
-import org.json.JSONObject;
-
+import com.example.sayagymapp.ClasesSecundarias.Rutina;
+import com.example.sayagymapp.R;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link PlaceholderItem}.
- * TODO: Replace the implementation with code for your data type.
- */
+
 public class MyRutinasListViewAdapter extends RecyclerView.Adapter<MyRutinasListViewAdapter.ViewHolder> {
 
     private final ArrayList<Rutina> mValues;

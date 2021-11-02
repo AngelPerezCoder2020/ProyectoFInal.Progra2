@@ -1,4 +1,4 @@
-package com.example.sayagymapp;
+package com.example.sayagymapp.ClasesSecundarias;
 
 public class Rutina{
     private String nombre, Ejercicio1, Ejercicio2, Ejercicio3,Ejercicio4,Ejercicio5;

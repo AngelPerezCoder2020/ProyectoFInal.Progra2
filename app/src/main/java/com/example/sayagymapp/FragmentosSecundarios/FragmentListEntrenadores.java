@@ -1,4 +1,4 @@
-package com.example.sayagymapp;
+package com.example.sayagymapp.FragmentosSecundarios;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,34 +12,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.sayagymapp.placeholder.PlaceholderContent;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import com.example.sayagymapp.DataBaseConectorPackage.DataBaseConector;
+import com.example.sayagymapp.R;
 
 /**
  * A fragment representing a list of Items.
  */
-public class RutinasListFragment extends Fragment {
+public class FragmentListEntrenadores extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-    private ArrayList<Rutina> RutinasG;
+    MyItemEntrenadoresViewAdapter entrenadores;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public RutinasListFragment() {
+    public FragmentListEntrenadores() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static RutinasListFragment newInstance(int columnCount) {
-        RutinasListFragment fragment = new RutinasListFragment();
+    public static FragmentListEntrenadores newInstance(int columnCount) {
+        FragmentListEntrenadores fragment = new FragmentListEntrenadores();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -58,9 +55,11 @@ public class RutinasListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_rutinas_list_list, container, false);
-        RutinasG = ConvertidorRutinas();
+        View view = inflater.inflate(R.layout.fragment_list_entrenadores_list, container, false);
         // Set the adapter
+        entrenadores = new MyItemEntrenadoresViewAdapter(DataBaseConector.ObtenerEntrenadores());
+        entrenadores.notifyDataSetChanged();
+        entrenadores.startListening();
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
@@ -69,18 +68,14 @@ public class RutinasListFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyRutinasListViewAdapter(RutinasG));
+            recyclerView.setAdapter(entrenadores);
         }
         return view;
     }
-    public ArrayList<Rutina> ConvertidorRutinas(){
-        ArrayList<Rutina> ensamblado = new ArrayList<>();
-        ArrayList<HashMap> aEnsamblar = DataBaseConector.ObtenerRutinas();
-        for(HashMap m:aEnsamblar){
-            Object[] valores = m.values().toArray();
-            Rutina item = new Rutina(valores[5].toString(),valores[1].toString(),valores[2].toString(),valores[3].toString(),valores[4].toString(),valores[0].toString());
-            ensamblado.add(item);
-        }
-        return ensamblado;
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        entrenadores.stopListening();
     }
 }
