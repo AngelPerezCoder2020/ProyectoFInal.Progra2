@@ -98,50 +98,51 @@ public class InfoPersonalFragment extends Fragment implements View.OnClickListen
     }
 
     public void ocultarTextView(){
-        nombre.setVisibility(View.GONE);
-        edad.setVisibility(View.GONE);
-        pesoinicial.setVisibility(View.GONE);
-        pesometa.setVisibility(View.GONE);
-        hombros.setVisibility(View.GONE);
-        pecho.setVisibility(View.GONE);
-        cintura.setVisibility(View.GONE);
-        antebrazos.setVisibility(View.GONE);
-        muslo.setVisibility(View.GONE);
-        pantorrillas.setVisibility(View.GONE);
-        biceps.setVisibility(View.GONE);
-        gluteos.setVisibility(View.GONE);
-        Btn2.setVisibility(View.GONE);
+        nombre.setEnabled(false);
+        edad.setEnabled(false);
+        pesoinicial.setEnabled(false);
+        pesometa.setEnabled(false);
+        hombros.setEnabled(false);
+        pecho.setEnabled(false);
+        cintura.setEnabled(false);
+        antebrazos.setEnabled(false);
+        muslo.setEnabled(false);
+        pantorrillas.setEnabled(false);
+        biceps.setEnabled(false);
+        gluteos.setEnabled(false);
+        Btn2.setEnabled(false);
     }
     public void MostrarTextView(){
-        nombre.setVisibility(View.VISIBLE);
-        edad.setVisibility(View.VISIBLE);
-        pesoinicial.setVisibility(View.VISIBLE);
-        pesometa.setVisibility(View.VISIBLE);
-        hombros.setVisibility(View.VISIBLE);
-        pecho.setVisibility(View.VISIBLE);
-        cintura.setVisibility(View.VISIBLE);
-        antebrazos.setVisibility(View.VISIBLE);
-        muslo.setVisibility(View.VISIBLE);
-        pantorrillas.setVisibility(View.VISIBLE);
-        biceps.setVisibility(View.VISIBLE);
-        gluteos.setVisibility(View.VISIBLE);
-        Btn2.setVisibility(View.VISIBLE);
+        Btn2.setEnabled(true);
+        nombre.setEnabled(true);
+        edad.setEnabled(true);
+        pesoinicial.setEnabled(true);
+        pesometa.setEnabled(true);
+        hombros.setEnabled(true);
+        pecho.setEnabled(true);
+        cintura.setEnabled(true);
+        antebrazos.setEnabled(true);
+        muslo.setEnabled(true);
+        pantorrillas.setEnabled(true);
+        biceps.setEnabled(true);
+        gluteos.setEnabled(true);
+        Btn2.setEnabled(true);
     }
 
     @Override
     public void onClick(View v) {
-        if(nombre.getText()==""
-                ||edad.getText()==""
-                ||pesoinicial.getText()==""
-                ||pesometa.getText()==""
-                ||hombros.getText()==""
-                ||pecho.getText()==""
-                ||cintura.getText()==""
-                ||antebrazos.getText()==""
-                ||muslo.getText()==""
-                ||pantorrillas.getText()==""
-                ||biceps.getText()==""
-                ||gluteos.getText()==""){
+        if(nombre.getText().toString().equals("")
+                || edad.getText().toString().equals("")
+                || pesoinicial.getText().toString().equals("")
+                || pesometa.getText().toString().equals("")
+                || hombros.getText().toString().equals("")
+                || pecho.getText().toString().equals("")
+                || cintura.getText().toString().equals("")
+                || antebrazos.getText().toString().equals("")
+                || muslo.getText().toString().equals("")
+                || pantorrillas.getText().toString().equals("")
+                || biceps.getText().toString().equals("")
+                || gluteos.getText().toString().equals("")){
             Toast.makeText(getActivity(),"LLENE TODOS LOS DATOS SOLICITADOS",Toast.LENGTH_LONG).show();
 
         }else{
@@ -161,7 +162,7 @@ public class InfoPersonalFragment extends Fragment implements View.OnClickListen
             ListaActual.add(avance);
             Toast.makeText(getActivity(),"El avance fué registrado exitosamente",Toast.LENGTH_LONG);
             DataBaseConector.guardarUsuario(ListaActual, HomeActivity.EmailIngresado);
-            DataBaseConector.ObtenerReferencia(getActivity());
+            DataBaseConector.ObtenerReferencia(getActivity(),HomeActivity.EmailIngresado);
             ocultarTextView();
             LimpiarTextView();
         }

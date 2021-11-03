@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.sayagymapp.ActivitiesPrincipales.HomeActivity;
 import com.example.sayagymapp.ClasesSecundarias.Couch;
 import com.example.sayagymapp.DataBaseConectorPackage.DataBaseConector;
 import com.example.sayagymapp.R;
@@ -40,7 +41,7 @@ public class MyItemEntrenadoresViewAdapter extends FirestoreRecyclerAdapter<Couc
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 DataBaseConector.EstablecerEntrenador(couch.getNombre());
-                                DataBaseConector.ObtenerReferencia(v.getContext());
+                                DataBaseConector.ObtenerReferencia(v.getContext(), HomeActivity.EmailIngresado);
                             }
                         })
                         .setNegativeButton("no",null)

@@ -97,8 +97,8 @@ public class DataBaseConector {
         llenarListas();
         return Rutinas;
     }
-    public static void ObtenerReferencia(Context cnt){
-        DocumentReference docRef = db.collection("Usuarios").document(HomeActivity.EmailIngresado);
+    public static void ObtenerReferencia(Context cnt, String docu){
+        DocumentReference docRef = db.collection("Usuarios").document(docu);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {

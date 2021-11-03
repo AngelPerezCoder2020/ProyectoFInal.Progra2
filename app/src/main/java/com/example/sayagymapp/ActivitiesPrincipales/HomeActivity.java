@@ -24,7 +24,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         EmailIngresado = getIntent().getExtras().getString("Email");
-        DataBaseConector.ObtenerReferencia(this);
         setTitle("SAYA-GYM");
         btnSalir = findViewById(R.id.SalirBtn);
         BtnFragPersonal = findViewById(R.id.BtnFragPersonal);

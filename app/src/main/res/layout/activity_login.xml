@@ -49,9 +49,9 @@
     <Button
         android:id="@+id/RegistrarseButton"
         android:layout_width="168dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="16dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="24dp"
         android:background="#FF9800"
         android:backgroundTint="@color/naranja"
         android:text="@string/Boton_Registrarse"
@@ -65,9 +65,9 @@
     <Button
         android:id="@+id/InicioSecionButton"
         android:layout_width="176dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="32dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
         android:background="#CFA717"
         android:backgroundTint="#E6900F"
         android:backgroundTintMode="src_in"
@@ -78,12 +78,8 @@
         android:textColorLink="#E1CD1F"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toStartOf="@+id/RegistrarseButton"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PasswordTextView"
-        app:layout_constraintVertical_bias="0.218" />
+        app:layout_constraintTop_toTopOf="@+id/RegistrarseButton" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -94,24 +90,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/estasi" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="408dp"
-        android:layout_height="84dp"
-        android:layout_marginTop="48dp"
-        android:text="@string/button_invitado"
-        android:textColor="#FAE20D"
-        android:textColorHighlight="#E6D009"
-        android:textColorHint="#EAD30C"
-        android:textColorLink="#F6DE09"
-        android:textSize="16sp"
-        android:textStyle="bold"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegistrarseButton" />
 
     <Button
         android:id="@+id/button2"

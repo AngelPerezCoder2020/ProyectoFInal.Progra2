@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
     public void Home_ActivityStart(){
-        Intent abrir = new Intent(this,HomeActivity.class);
+        Intent abrir = new Intent(this,Splash_Bienvenida.class);
         abrir.putExtra("Email",EmailTxt.getText().toString());
         startActivity(abrir);
         EmailTxt.setText("");Passwordtxt.setText("");

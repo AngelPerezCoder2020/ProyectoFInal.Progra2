@@ -26,7 +26,7 @@ public class CouchFragment extends Fragment implements View.OnClickListener{
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private Button Btn1, Btn2, Btn3;
+    private Button Btn1, Btn2;
     private int id;
 
     // TODO: Rename and change types of parameters
@@ -71,11 +71,9 @@ public class CouchFragment extends Fragment implements View.OnClickListener{
         View view = inflater.inflate(R.layout.fragment_couch, container, false);
         Btn1 = view.findViewById(R.id.BotonEntrenadoresList);
         Btn2 = view.findViewById(R.id.BotonRutinasList);
-        Btn3 = view.findViewById(R.id.RegistroBotonList);
         id = R.id.ContenedorFrag;
         Btn1.setOnClickListener(this);
         Btn2.setOnClickListener(this);
-        Btn3.setOnClickListener(this);
         getActivity().getSupportFragmentManager().beginTransaction().add(id,new FragmentListEntrenadores()).commit();
         return view;
     }
@@ -87,14 +85,12 @@ public class CouchFragment extends Fragment implements View.OnClickListener{
         int id = v.getId();
         if(id==R.id.BotonEntrenadoresList){
             poner = new FragmentListEntrenadores();
-        }else if(id==R.id.BotonRutinasList){
-            if(DataBaseConector.ObtenerRutinas() != null){
+        }else if(id==R.id.BotonRutinasList) {
+            if (DataBaseConector.ObtenerRutinas() != null) {
                 poner = new RutinasListFragment();
-            }else{
+            } else {
                 permiso = false;
             }
-        }else if(id==R.id.RegistroBotonList){
-            //Fragmento de Registro Asistencia
         }
         if(permiso){
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.ContenedorFrag,poner).commit();
