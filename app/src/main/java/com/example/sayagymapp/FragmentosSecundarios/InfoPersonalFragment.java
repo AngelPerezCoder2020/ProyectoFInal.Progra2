@@ -84,9 +84,9 @@ public class InfoPersonalFragment extends Fragment implements View.OnClickListen
         pantorrillas = view.findViewById(R.id.pantorrillatext);
         biceps = view.findViewById(R.id.bicepstext);
         gluteos = view.findViewById(R.id.gluteostext);
-        ocultarTextView();
         Btn1 = view.findViewById(R.id.nuevoavancebutton);
         Btn2 = view.findViewById(R.id.registraravancebutton);
+        ocultarTextView();
         Btn2.setOnClickListener(this);
         Btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +110,7 @@ public class InfoPersonalFragment extends Fragment implements View.OnClickListen
         pantorrillas.setVisibility(View.GONE);
         biceps.setVisibility(View.GONE);
         gluteos.setVisibility(View.GONE);
+        Btn2.setVisibility(View.GONE);
     }
     public void MostrarTextView(){
         nombre.setVisibility(View.VISIBLE);
@@ -124,6 +125,7 @@ public class InfoPersonalFragment extends Fragment implements View.OnClickListen
         pantorrillas.setVisibility(View.VISIBLE);
         biceps.setVisibility(View.VISIBLE);
         gluteos.setVisibility(View.VISIBLE);
+        Btn2.setVisibility(View.VISIBLE);
     }
 
     @Override
