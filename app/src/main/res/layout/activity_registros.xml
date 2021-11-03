@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ActivitiesPrincipales.RegistrosActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/AsistenciaButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ASISTENCIA" />
+
+        <Button
+            android:id="@+id/TiemposDeComidaButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TIEMPOS COMIDA" />
+
+        <Button
+            android:id="@+id/ExitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="SALIR" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/ContenedorActivityTres"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

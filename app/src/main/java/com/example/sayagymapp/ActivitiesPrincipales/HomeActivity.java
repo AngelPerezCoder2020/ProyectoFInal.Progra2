@@ -41,19 +41,24 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        String Titulo=null;
         Fragment poner = null;
         int id = v.getId();
         switch(id){
             case R.id.BtnFragCouch:
+                Titulo = "COUCHING";
                 poner = new CouchFragment();
                 break;
             case R.id.BtnFragPersonal:
+                Titulo = "INFO. PERSONAL";
                 poner = new PersonalFragment();
                 break;
             case R.id.BtnFragNutri:
+                Titulo = "NUTRICION";
                 poner = new NutricionFragment();
                 break;
         }
+        setTitle(Titulo);
         getSupportFragmentManager().beginTransaction().replace(R.id.ContenedorActivity2,poner).commit();
     }
 }

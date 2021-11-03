@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SayaGymApp">
         <activity
+            android:name=".ActivitiesPrincipales.RegistrosActivity"
+            android:exported="true" />
+        <activity
             android:name=".ActivitiesPrincipales.Splash_Bienvenida"
             android:exported="true" />
         <activity
