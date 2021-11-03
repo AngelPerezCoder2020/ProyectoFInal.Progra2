@@ -16,6 +16,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+    //BUENAS
+    //h
+    //
     Button BtnFragPersonal,BtnFragCouch,BtnFragNutri;
     FloatingActionButton btnSalir;
     public static String EmailIngresado;
