@@ -8,11 +8,13 @@ import androidx.annotation.NonNull;
 
 import com.example.sayagymapp.ActivitiesPrincipales.HomeActivity;
 import com.example.sayagymapp.ActivitiesPrincipales.LoginActivity;
+import com.example.sayagymapp.ClasesSecundarias.Avance;
 import com.example.sayagymapp.ClasesSecundarias.Comida;
 import com.example.sayagymapp.ClasesSecundarias.Couch;
 import com.example.sayagymapp.ClasesSecundarias.Rutina;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -28,11 +30,23 @@ public class DataBaseConector {
     public static FirebaseFirestore db = FirebaseFirestore.getInstance();
     public static ArrayList<Rutina> Rutinas = new ArrayList<Rutina>();
     public static ArrayList<Comida> Dieta = new ArrayList<Comida>();
-    public static ArrayList<HashMap> RutinasObtenidas, DietasObtenidas;
-    public static void guardarUsuario(){
+    public static ArrayList<Avance> Avances = new ArrayList<Avance>();
+    public static ArrayList<HashMap> RutinasObtenidas, DietasObtenidas, AvancesObtenidos;
+    public static DocumentReference couchPersonalRef = null;
+    public static void guardarUsuario(ArrayList<Avance> Iniciar, String docu){
         Map<String, Object> map = new HashMap<>();
-        map.put("Couch","");
-        db.collection("Usuarios").document(LoginActivity.EmailTxt.getText().toString()).set(map);
+        map.put("Couch",couchPersonalRef);
+        map.put("Avances",Iniciar);
+        db.collection("Usuarios").document(docu).set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Log.d("BASEDEDATOS","SE ENVIÓ EL USUARIO");
+                }else{
+                    Log.d("BASEDEDATOS",task.getException().toString());
+                }
+            }
+        });
     }
     public static void RegistrarCouch(){
        llenarListas();
@@ -75,6 +89,7 @@ public class DataBaseConector {
         DocumentReference couchEscogido = db.collection("Couches").document(couch);
         Map<String, Object> map = new HashMap<>();
         map.put("Couch",couchEscogido);
+        map.put("Avances",AvancesObtenidos);
         db.collection("Usuarios").document(HomeActivity.EmailIngresado).set(map);
     }
 
@@ -90,13 +105,14 @@ public class DataBaseConector {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        if(document.getData().get("Couch")==""){
+                        if(document.getData().get("Couch")==null){
                             RutinasObtenidas = null;
                             DietasObtenidas = null;
                         }else{
-                            DocumentReference referencia = (DocumentReference)document.getData().get("Couch");
-                            GuargarRutinasyDietas(referencia);
+                            couchPersonalRef = (DocumentReference)document.getData().get("Couch");
+                            GuargarRutinasyDietas(couchPersonalRef);
                         }
+                        AvancesObtenidos = (ArrayList<HashMap>) document.getData().get("Avances");
                     } else {
                         Toast.makeText(cnt,"El Usuario: "+HomeActivity.EmailIngresado+" no Existe en la base de datos",Toast.LENGTH_LONG).show();
                     }
@@ -129,5 +145,22 @@ public class DataBaseConector {
     }
     public static ArrayList<HashMap> ObtenerDietas(){
         return DietasObtenidas;
+    }
+    public static ArrayList<HashMap> ObtenerAvances(){
+        return AvancesObtenidos;
+    }
+
+    public static ArrayList<Avance> avancesTransformador(){
+        ArrayList<Avance> decodificado = new ArrayList<>();
+        ArrayList<HashMap> codificados = DataBaseConector.ObtenerAvances();
+        for(HashMap m:codificados){
+            Object[] valores = m.values().toArray();
+            Avance item = new Avance(valores[0].toString(),valores[1].toString(),valores[2].toString(),
+                    valores[3].toString(),valores[4].toString(),valores[5].toString(),valores[6].toString(),
+                    valores[7].toString(),valores[8].toString(),valores[9].toString(),valores[10].toString(),
+                    valores[11].toString());
+            decodificado.add(item);
+        }
+        return decodificado;
     }
 }

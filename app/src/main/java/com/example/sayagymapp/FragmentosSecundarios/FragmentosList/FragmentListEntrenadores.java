@@ -1,4 +1,4 @@
-package com.example.sayagymapp.FragmentosSecundarios;
+package com.example.sayagymapp.FragmentosSecundarios.FragmentosList;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.sayagymapp.DataBaseConectorPackage.DataBaseConector;
+import com.example.sayagymapp.FragmentosSecundarios.Adaptadores.MyItemEntrenadoresViewAdapter;
 import com.example.sayagymapp.R;
 
 /**

@@ -11,13 +11,14 @@
         android:id="@+id/HoraDeComidaText"
         android:layout_width="match_parent"
         android:layout_height="78dp"
+        android:background="#54DDD2"
         android:gravity="center"
         android:text="Titulo" />
 
     <TextView
         android:id="@+id/dietaTextVIew"
         android:layout_width="match_parent"
-        android:layout_height="39dp"
+        android:layout_height="81dp"
         android:gravity="center_vertical"
         android:text="dieta" />
 </LinearLayout>

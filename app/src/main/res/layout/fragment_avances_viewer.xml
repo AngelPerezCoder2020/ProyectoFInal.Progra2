@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:background="#D84545"
+        android:gravity="center"
+        android:text="NUEVO REGISTRO " />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.178"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/edad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/nombre"
+            app:layout_constraintTop_toBottomOf="@+id/nombre" />
+
+        <TextView
+            android:id="@+id/pesoinicial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/edad"
+            app:layout_constraintTop_toBottomOf="@+id/edad" />
+
+        <TextView
+            android:id="@+id/pesometa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/pesoinicial"
+            app:layout_constraintTop_toBottomOf="@+id/pesoinicial" />
+
+        <TextView
+            android:id="@+id/hombros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/pesometa"
+            app:layout_constraintTop_toBottomOf="@+id/pesometa" />
+
+        <TextView
+            android:id="@+id/pecho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/hombros"
+            app:layout_constraintTop_toBottomOf="@+id/hombros" />
+
+        <TextView
+            android:id="@+id/cintura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/pecho"
+            app:layout_constraintTop_toBottomOf="@+id/pecho" />
+
+        <TextView
+            android:id="@+id/antebrazo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/cintura"
+            app:layout_constraintTop_toBottomOf="@+id/cintura" />
+
+        <TextView
+            android:id="@+id/muslo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/antebrazo"
+            app:layout_constraintTop_toBottomOf="@+id/antebrazo" />
+
+        <TextView
+            android:id="@+id/pantorrilla"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/muslo"
+            app:layout_constraintTop_toBottomOf="@+id/muslo" />
+
+        <TextView
+            android:id="@+id/biceps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/pantorrilla"
+            app:layout_constraintTop_toBottomOf="@+id/pantorrilla" />
+
+        <TextView
+            android:id="@+id/gluteo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/biceps"
+            app:layout_constraintTop_toBottomOf="@+id/biceps" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

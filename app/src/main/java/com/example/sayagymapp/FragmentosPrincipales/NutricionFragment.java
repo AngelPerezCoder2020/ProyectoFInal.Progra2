@@ -11,10 +11,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.sayagymapp.DataBaseConectorPackage.DataBaseConector;
-import com.example.sayagymapp.FragmentosSecundarios.FragmentDietasViewer;
-import com.example.sayagymapp.FragmentosSecundarios.FragmentListEntrenadores;
+import com.example.sayagymapp.FragmentosSecundarios.FragmentosList.FragmentDietasViewer;
 import com.example.sayagymapp.FragmentosSecundarios.FragmentRegistroDietas;
-import com.example.sayagymapp.FragmentosSecundarios.RutinasListFragment;
 import com.example.sayagymapp.R;
 
 /**

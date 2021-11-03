@@ -1,4 +1,4 @@
-package com.example.sayagymapp.FragmentosSecundarios;
+package com.example.sayagymapp.FragmentosSecundarios.FragmentosList;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,8 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.sayagymapp.ClasesSecundarias.Comida;
+import com.example.sayagymapp.ClasesSecundarias.Rutina;
 import com.example.sayagymapp.DataBaseConectorPackage.DataBaseConector;
+import com.example.sayagymapp.FragmentosSecundarios.Adaptadores.MyRutinasListViewAdapter;
 import com.example.sayagymapp.R;
 
 import java.util.ArrayList;
@@ -22,25 +23,25 @@ import java.util.HashMap;
 /**
  * A fragment representing a list of Items.
  */
-public class FragmentDietasViewer extends Fragment {
+public class RutinasListFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-    private ArrayList<Comida> comidas;
+    private ArrayList<Rutina> RutinasG;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public FragmentDietasViewer() {
+    public RutinasListFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static FragmentDietasViewer newInstance(int columnCount) {
-        FragmentDietasViewer fragment = new FragmentDietasViewer();
+    public static RutinasListFragment newInstance(int columnCount) {
+        RutinasListFragment fragment = new RutinasListFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -59,8 +60,8 @@ public class FragmentDietasViewer extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_dietas_viewer_list, container, false);
-        comidas = EnsambladorDietas();
+        View view = inflater.inflate(R.layout.fragment_rutinas_list_list, container, false);
+        RutinasG = ConvertidorRutinas();
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -70,18 +71,18 @@ public class FragmentDietasViewer extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyDietasRecyclerViewAdapter(comidas));
+            recyclerView.setAdapter(new MyRutinasListViewAdapter(RutinasG));
         }
         return view;
     }
-    public ArrayList<Comida> EnsambladorDietas(){
-        ArrayList<Comida> regresar = new ArrayList<Comida>();
-        ArrayList<HashMap> comidasCodificadas = DataBaseConector.ObtenerDietas();
-        for(HashMap m:comidasCodificadas){
+    public ArrayList<Rutina> ConvertidorRutinas(){
+        ArrayList<Rutina> ensamblado = new ArrayList<>();
+        ArrayList<HashMap> aEnsamblar = DataBaseConector.ObtenerRutinas();
+        for(HashMap m:aEnsamblar){
             Object[] valores = m.values().toArray();
-            Comida item = new Comida(valores[0].toString(),valores[1].toString());
-            regresar.add(item);
+            Rutina item = new Rutina(valores[5].toString(),valores[1].toString(),valores[2].toString(),valores[3].toString(),valores[4].toString(),valores[0].toString());
+            ensamblado.add(item);
         }
-        return regresar;
+        return ensamblado;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.sayagymapp.FragmentosSecundarios;
+package com.example.sayagymapp.FragmentosSecundarios.Adaptadores;
 
 import androidx.recyclerview.widget.RecyclerView;
 

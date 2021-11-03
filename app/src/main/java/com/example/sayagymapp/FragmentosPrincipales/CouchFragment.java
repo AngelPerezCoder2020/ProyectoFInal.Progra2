@@ -11,9 +11,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.sayagymapp.DataBaseConectorPackage.DataBaseConector;
-import com.example.sayagymapp.FragmentosSecundarios.FragmentListEntrenadores;
+import com.example.sayagymapp.FragmentosSecundarios.FragmentosList.FragmentListEntrenadores;
 import com.example.sayagymapp.R;
-import com.example.sayagymapp.FragmentosSecundarios.RutinasListFragment;
+import com.example.sayagymapp.FragmentosSecundarios.FragmentosList.RutinasListFragment;
 
 /**
  * A simple {@link Fragment} subclass.

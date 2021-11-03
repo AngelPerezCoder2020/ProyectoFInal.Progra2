@@ -8,18 +8,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/BotonInfoPersonal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/BotonDatos" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/BotonAvances"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -27,6 +27,7 @@
     </LinearLayout>
 
     <FrameLayout
+        android:id="@+id/contenedorFragmentoPersonal"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

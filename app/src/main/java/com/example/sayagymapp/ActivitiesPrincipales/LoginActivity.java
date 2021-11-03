@@ -11,12 +11,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sayagymapp.ClasesSecundarias.Avance;
 import com.example.sayagymapp.DataBaseConectorPackage.DataBaseConector;
 import com.example.sayagymapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private Button InicioSecionBtn, RegistrarseBtn;
@@ -51,7 +54,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                DataBaseConector.guardarUsuario();
+                                ArrayList<Avance> Base = new ArrayList<Avance>();
+                                Base.add(new Avance("Nombre:  ---","Edad:  ---","Peso Inicial:  ---","Peso Meta:  ---","Hombros:  ---","Pecho:  ---","Cintura:  ---","AnteBrazo:  ---","Muslo:  ---","Pantorrilla:  ---","Biceps:  ---","Gluteos:  ---"));
+                                DataBaseConector.guardarUsuario(Base,
+                                        LoginActivity.EmailTxt.getText().toString());
                                 Home_ActivityStart();
                             }else{
                                 Error();
