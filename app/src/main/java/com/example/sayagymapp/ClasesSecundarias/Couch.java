@@ -1,6 +1,5 @@
-package com.example.sayagymapp;
+package com.example.sayagymapp.ClasesSecundarias;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 

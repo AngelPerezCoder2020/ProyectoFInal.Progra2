@@ -1,4 +1,4 @@
-package com.example.sayagymapp;
+package com.example.sayagymapp.FragmentosSecundarios;
 
 import android.os.Bundle;
 
@@ -7,28 +7,26 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.FrameLayout;
+
+import com.example.sayagymapp.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CouchFragment#newInstance} factory method to
+ * Use the {@link FragmentRegistroDietas#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CouchFragment extends Fragment implements View.OnClickListener{
+public class FragmentRegistroDietas extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private Button Btn1, Btn2, Btn3;
-    private int id;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    public CouchFragment() {
+    public FragmentRegistroDietas() {
         // Required empty public constructor
     }
 
@@ -38,11 +36,11 @@ public class CouchFragment extends Fragment implements View.OnClickListener{
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CouchFragment.
+     * @return A new instance of fragment FragmentRegistroDietas.
      */
     // TODO: Rename and change types and number of parameters
-    public static CouchFragment newInstance(String param1, String param2) {
-        CouchFragment fragment = new CouchFragment();
+    public static FragmentRegistroDietas newInstance(String param1, String param2) {
+        FragmentRegistroDietas fragment = new FragmentRegistroDietas();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -63,20 +61,6 @@ public class CouchFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_couch, container, false);
-        Btn1 = view.findViewById(R.id.BotonEntrenadoresList);
-        Btn2 = view.findViewById(R.id.BotonRutinasList);
-        Btn3 = view.findViewById(R.id.RegistroBotonList);
-        id = R.id.ContenedorFrag;
-        Btn1.setOnClickListener(this);
-        Btn2.setOnClickListener(this);
-        Btn3.setOnClickListener(this);
-        getActivity().getSupportFragmentManager().beginTransaction().add(id,new FragmentListEntrenadores()).commit();
-        return view;
-    }
-
-    @Override
-    public void onClick(View v) {
-
+        return inflater.inflate(R.layout.fragment_registro_dietas, container, false);
     }
 }

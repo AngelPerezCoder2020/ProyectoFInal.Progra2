@@ -1,0 +1,105 @@
+package com.example.sayagymapp.FragmentosPrincipales;
+
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.example.sayagymapp.DataBaseConectorPackage.DataBaseConector;
+import com.example.sayagymapp.FragmentosSecundarios.FragmentosList.FragmentListEntrenadores;
+import com.example.sayagymapp.R;
+import com.example.sayagymapp.FragmentosSecundarios.FragmentosList.RutinasListFragment;
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link CouchFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class CouchFragment extends Fragment implements View.OnClickListener{
+
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+    private Button Btn1, Btn2, Btn3;
+    private int id;
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
+    public CouchFragment() {
+        // Required empty public constructor
+    }
+
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment CouchFragment.
+     */
+    // TODO: Rename and change types and number of parameters
+    public static CouchFragment newInstance(String param1, String param2) {
+        CouchFragment fragment = new CouchFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_couch, container, false);
+        Btn1 = view.findViewById(R.id.BotonEntrenadoresList);
+        Btn2 = view.findViewById(R.id.BotonRutinasList);
+        Btn3 = view.findViewById(R.id.RegistroBotonList);
+        id = R.id.ContenedorFrag;
+        Btn1.setOnClickListener(this);
+        Btn2.setOnClickListener(this);
+        Btn3.setOnClickListener(this);
+        getActivity().getSupportFragmentManager().beginTransaction().add(id,new FragmentListEntrenadores()).commit();
+        return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        Boolean permiso = true;
+        Fragment poner = null;
+        int id = v.getId();
+        if(id==R.id.BotonEntrenadoresList){
+            poner = new FragmentListEntrenadores();
+        }else if(id==R.id.BotonRutinasList){
+            if(DataBaseConector.ObtenerRutinas() != null){
+                poner = new RutinasListFragment();
+            }else{
+                permiso = false;
+            }
+        }else if(id==R.id.RegistroBotonList){
+            //Fragmento de Registro Asistencia
+        }
+        if(permiso){
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.ContenedorFrag,poner).commit();
+        }else{
+            Toast.makeText(getActivity(),"Aún no Se ah Seleccionado ningún Entrenador Personal",Toast.LENGTH_LONG).show();
+        }
+    }
+}

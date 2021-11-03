@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/DietaTextView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#A0E353"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/HoraDeComidaText"
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:background="#54DDD2"
+        android:gravity="center"
+        android:text="Titulo" />
+
+    <TextView
+        android:id="@+id/dietaTextVIew"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:gravity="center_vertical"
+        android:text="dieta" />
+</LinearLayout>

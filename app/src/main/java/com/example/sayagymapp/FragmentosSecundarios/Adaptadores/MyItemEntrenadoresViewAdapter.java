@@ -1,4 +1,4 @@
-package com.example.sayagymapp;
+package com.example.sayagymapp.FragmentosSecundarios.Adaptadores;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -9,19 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.sayagymapp.placeholder.PlaceholderContent.PlaceholderItem;
+import com.example.sayagymapp.ClasesSecundarias.Couch;
+import com.example.sayagymapp.DataBaseConectorPackage.DataBaseConector;
+import com.example.sayagymapp.R;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
-import java.util.List;
-
-/**
- * {@link RecyclerView.Adapter} that can display a {@link PlaceholderItem}.
- * TODO: Replace the implementation with code for your data type.
- */
-public class MyItemEntrenadoresViewAdapter extends FirestoreRecyclerAdapter<Couch,MyItemEntrenadoresViewAdapter.ViewHolder> implements View.OnClickListener{
+public class MyItemEntrenadoresViewAdapter extends FirestoreRecyclerAdapter<Couch,MyItemEntrenadoresViewAdapter.ViewHolder>{
 
     public MyItemEntrenadoresViewAdapter(@NonNull FirestoreRecyclerOptions<Couch> options) {
         super(options);
@@ -45,6 +40,7 @@ public class MyItemEntrenadoresViewAdapter extends FirestoreRecyclerAdapter<Couc
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 DataBaseConector.EstablecerEntrenador(couch.getNombre());
+                                DataBaseConector.ObtenerReferencia(v.getContext());
                             }
                         })
                         .setNegativeButton("no",null)
@@ -52,12 +48,6 @@ public class MyItemEntrenadoresViewAdapter extends FirestoreRecyclerAdapter<Couc
             }
         });
     }
-
-    @Override
-    public void onClick(View v) {
-
-    }
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final TextView Nombre;
 

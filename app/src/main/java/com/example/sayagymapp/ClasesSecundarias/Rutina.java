@@ -1,9 +1,10 @@
-package com.example.sayagymapp;
+package com.example.sayagymapp.ClasesSecundarias;
 
 public class Rutina{
-    private String Ejercicio1, Ejercicio2, Ejercicio3,Ejercicio4,Ejercicio5;
+    private String nombre, Ejercicio1, Ejercicio2, Ejercicio3,Ejercicio4,Ejercicio5;
 
-    public Rutina(String ejercicio1, String ejercicio2, String ejercicio3, String ejercicio4, String ejercicio5) {
+    public Rutina(String nombre, String ejercicio1, String ejercicio2, String ejercicio3, String ejercicio4, String ejercicio5) {
+        this.nombre = nombre;
         Ejercicio1 = ejercicio1;
         Ejercicio2 = ejercicio2;
         Ejercicio3 = ejercicio3;
@@ -12,6 +13,14 @@ public class Rutina{
     }
     public Rutina(){
 
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getEjercicio1() {
