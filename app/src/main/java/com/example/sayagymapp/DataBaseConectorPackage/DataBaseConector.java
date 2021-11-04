@@ -33,6 +33,7 @@ public class DataBaseConector {
     public static ArrayList<Avance> Avances = new ArrayList<Avance>();
     public static ArrayList<HashMap> RutinasObtenidas, DietasObtenidas, AvancesObtenidos;
     public static DocumentReference couchPersonalRef = null;
+    public static String couchPersonal = "Nadie :(";
     public static void guardarUsuario(ArrayList<Avance> Iniciar, String docu){
         Map<String, Object> map = new HashMap<>();
         map.put("Couch",couchPersonalRef);
@@ -86,6 +87,7 @@ public class DataBaseConector {
         return estacosa;
     }
     public static void EstablecerEntrenador(String couch){
+        couchPersonal = couch;
         DocumentReference couchEscogido = db.collection("Couches").document(couch);
         Map<String, Object> map = new HashMap<>();
         map.put("Couch",couchEscogido);
@@ -129,6 +131,7 @@ public class DataBaseConector {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
+                        couchPersonal = document.getData().get("nombre").toString();
                         RutinasObtenidas = (ArrayList<HashMap>) document.getData().get("Rutinas");
                         DietasObtenidas = (ArrayList<HashMap>) document.getData().get("Dietas");
                     } else {

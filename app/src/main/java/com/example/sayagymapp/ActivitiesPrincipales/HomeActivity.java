@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.sayagymapp.FragmentosPrincipales.CouchFragment;
 import com.example.sayagymapp.DataBaseConectorPackage.DataBaseConector;
@@ -34,6 +35,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         BtnFragPersonal.setOnClickListener(this);
         getSupportFragmentManager().beginTransaction().add(R.id.ContenedorActivity2,new PersonalFragment()).commit();
         btnSalir.setOnClickListener(view->{
+            DataBaseConector.couchPersonal = "Nadie :(";
+            DataBaseConector.couchPersonalRef = null;
             FirebaseAuth.getInstance().signOut();
             finish();
         });
@@ -46,7 +49,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         int id = v.getId();
         switch(id){
             case R.id.BtnFragCouch:
-                Titulo = "COUCHING";
+                Titulo = "COUCHING :: "+DataBaseConector.couchPersonal;
                 poner = new CouchFragment();
                 break;
             case R.id.BtnFragPersonal:

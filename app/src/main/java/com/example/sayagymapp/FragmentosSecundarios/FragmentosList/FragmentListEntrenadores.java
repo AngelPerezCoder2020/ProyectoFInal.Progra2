@@ -58,7 +58,7 @@ public class FragmentListEntrenadores extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list_entrenadores_list, container, false);
         // Set the adapter
-        entrenadores = new MyItemEntrenadoresViewAdapter(DataBaseConector.ObtenerEntrenadores());
+        entrenadores = new MyItemEntrenadoresViewAdapter(DataBaseConector.ObtenerEntrenadores(),this);
         entrenadores.notifyDataSetChanged();
         entrenadores.startListening();
         if (view instanceof RecyclerView) {
