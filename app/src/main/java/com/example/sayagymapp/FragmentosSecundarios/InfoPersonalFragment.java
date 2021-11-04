@@ -161,7 +161,7 @@ public class InfoPersonalFragment extends Fragment implements View.OnClickListen
                     "Gluteos:  "+gluteos.getText().toString());
             ListaActual.add(avance);
             Toast.makeText(getActivity(),"El avance fué registrado exitosamente",Toast.LENGTH_LONG).show();
-            DataBaseConector.guardarUsuario(ListaActual, HomeActivity.EmailIngresado);
+            DataBaseConector.guardarUsuario(ListaActual,DataBaseConector.AsistencíasTransformador(),HomeActivity.EmailIngresado);
             DataBaseConector.ObtenerReferencia(getActivity(),HomeActivity.EmailIngresado);
             ocultarTextView();
             LimpiarTextView();

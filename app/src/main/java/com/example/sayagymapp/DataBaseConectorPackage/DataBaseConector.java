@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 
 import com.example.sayagymapp.ActivitiesPrincipales.HomeActivity;
 import com.example.sayagymapp.ActivitiesPrincipales.LoginActivity;
+import com.example.sayagymapp.ClasesSecundarias.Asistencia;
 import com.example.sayagymapp.ClasesSecundarias.Avance;
 import com.example.sayagymapp.ClasesSecundarias.Comida;
 import com.example.sayagymapp.ClasesSecundarias.Couch;
@@ -22,6 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,13 +33,14 @@ public class DataBaseConector {
     public static ArrayList<Rutina> Rutinas = new ArrayList<Rutina>();
     public static ArrayList<Comida> Dieta = new ArrayList<Comida>();
     public static ArrayList<Avance> Avances = new ArrayList<Avance>();
-    public static ArrayList<HashMap> RutinasObtenidas, DietasObtenidas, AvancesObtenidos;
+    public static ArrayList<HashMap> RutinasObtenidas, DietasObtenidas, AvancesObtenidos, AsistenciasObtenidas;
     public static DocumentReference couchPersonalRef = null;
     public static String couchPersonal = "Nadie :(";
-    public static void guardarUsuario(ArrayList<Avance> Iniciar, String docu){
+    public static void guardarUsuario(ArrayList<Avance> Avances,ArrayList<Asistencia> Asistencias, String docu){
         Map<String, Object> map = new HashMap<>();
         map.put("Couch",couchPersonalRef);
-        map.put("Avances",Iniciar);
+        map.put("Avances",Avances);
+        map.put("Asistencias",Asistencias);
         db.collection("Usuarios").document(docu).set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -92,6 +95,7 @@ public class DataBaseConector {
         Map<String, Object> map = new HashMap<>();
         map.put("Couch",couchEscogido);
         map.put("Avances",AvancesObtenidos);
+        map.put("Asistencias",AsistenciasObtenidas);
         db.collection("Usuarios").document(HomeActivity.EmailIngresado).set(map);
     }
 
@@ -115,6 +119,7 @@ public class DataBaseConector {
                             GuargarRutinasyDietas(couchPersonalRef);
                         }
                         AvancesObtenidos = (ArrayList<HashMap>) document.getData().get("Avances");
+                        AsistenciasObtenidas = (ArrayList<HashMap>) document.getData().get("Asistencias");
                     } else {
                         Toast.makeText(cnt,"El Usuario: "+HomeActivity.EmailIngresado+" no Existe en la base de datos",Toast.LENGTH_LONG).show();
                     }
@@ -149,19 +154,27 @@ public class DataBaseConector {
     public static ArrayList<HashMap> ObtenerDietas(){
         return DietasObtenidas;
     }
-    public static ArrayList<HashMap> ObtenerAvances(){
-        return AvancesObtenidos;
-    }
 
     public static ArrayList<Avance> avancesTransformador(){
         ArrayList<Avance> decodificado = new ArrayList<>();
-        ArrayList<HashMap> codificados = DataBaseConector.ObtenerAvances();
+        ArrayList<HashMap> codificados = AvancesObtenidos;
         for(HashMap m:codificados){
             Object[] valores = m.values().toArray();
             Avance item = new Avance(valores[0].toString(),valores[1].toString(),valores[2].toString(),
                     valores[3].toString(),valores[4].toString(),valores[5].toString(),valores[6].toString(),
                     valores[7].toString(),valores[8].toString(),valores[9].toString(),valores[10].toString(),
                     valores[11].toString());
+            decodificado.add(item);
+        }
+        return decodificado;
+    }
+    public static ArrayList<Asistencia> AsistencíasTransformador(){
+        ArrayList<Asistencia> decodificado = new ArrayList<Asistencia>();
+        ArrayList<HashMap> codificados = AsistenciasObtenidas;
+        for(HashMap m:codificados){
+            Object[] valores = m.values().toArray();
+            Asistencia item = new Asistencia(valores[0].toString(),valores[1].toString(),valores[2].toString(),
+                    valores[3].toString());
             decodificado.add(item);
         }
         return decodificado;

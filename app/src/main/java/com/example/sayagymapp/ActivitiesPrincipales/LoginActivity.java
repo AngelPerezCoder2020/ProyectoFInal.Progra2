@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sayagymapp.ClasesSecundarias.Asistencia;
 import com.example.sayagymapp.ClasesSecundarias.Avance;
 import com.example.sayagymapp.DataBaseConectorPackage.DataBaseConector;
 import com.example.sayagymapp.R;
@@ -56,7 +57,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             if(task.isSuccessful()){
                                 ArrayList<Avance> Base = new ArrayList<Avance>();
                                 Base.add(new Avance("Nombre:  ---","Edad:  ---","Peso Inicial:  ---","Peso Meta:  ---","Hombros:  ---","Pecho:  ---","Cintura:  ---","AnteBrazo:  ---","Muslo:  ---","Pantorrilla:  ---","Biceps:  ---","Gluteos:  ---"));
+                                ArrayList<Asistencia> AsistenciasPredeterminada = new ArrayList<Asistencia>();
+                                AsistenciasPredeterminada.add(new Asistencia("Hora Entrada:  ---","Hora Salida:  ---","Rutina Realizada:  ---","Fecha Asistida:  ---"));
                                 DataBaseConector.guardarUsuario(Base,
+                                        AsistenciasPredeterminada,
                                         LoginActivity.EmailTxt.getText().toString());
                                 Home_ActivityStart();
                             }else{

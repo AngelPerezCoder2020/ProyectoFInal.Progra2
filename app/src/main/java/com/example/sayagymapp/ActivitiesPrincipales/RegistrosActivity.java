@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.sayagymapp.FragmentosSecundarios.RegistroAsistenciaFragment;
 import com.example.sayagymapp.R;
 
 public class RegistrosActivity extends AppCompatActivity implements View.OnClickListener{
@@ -27,6 +28,7 @@ public class RegistrosActivity extends AppCompatActivity implements View.OnClick
                 finish();
             }
         });
+        getSupportFragmentManager().beginTransaction().add(R.id.ContenedorActivityTres, new RegistroAsistenciaFragment()).commit();
     }
 
     @Override
