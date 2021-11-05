@@ -98,6 +98,7 @@ public class DataBaseConector {
         map.put("Couch",couchEscogido);
         map.put("Avances",AvancesObtenidos);
         map.put("Asistencias",AsistenciasObtenidas);
+        map.put("TiemposDeComida",getTiemposDeComida());
         db.collection("Usuarios").document(HomeActivity.EmailIngresado).set(map);
     }
 
