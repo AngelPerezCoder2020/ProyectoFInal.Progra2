@@ -111,7 +111,7 @@ public class RegistroAsistenciaFragment extends Fragment implements View.OnClick
             Asistencia nuevaAsitencia = new Asistencia("Hora Entrada:  "+horainicio.getText().toString(),"Hora Salida:  "+horasalida.getText().toString(),"Rutina Realizada:  "+rutinahecha.getText().toString(),"Fecha Asistida:  "+Fecha.getText().toString());
             ListaActual.add(nuevaAsitencia);
             Toast.makeText(getActivity(),"La Asistencia fué registrada exitosamente",Toast.LENGTH_LONG).show();
-            DataBaseConector.guardarUsuario(DataBaseConector.avancesTransformador(),ListaActual, HomeActivity.EmailIngresado);
+            DataBaseConector.guardarUsuario(DataBaseConector.avancesTransformador(),ListaActual, DataBaseConector.getTiemposDeComida(),HomeActivity.EmailIngresado);
             DataBaseConector.ObtenerReferencia(getActivity(),HomeActivity.EmailIngresado);
             try {
                 Thread.sleep(4000);

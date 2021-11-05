@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.sayagymapp.ClasesSecundarias.Asistencia;
 import com.example.sayagymapp.ClasesSecundarias.Avance;
+import com.example.sayagymapp.ClasesSecundarias.RegistroComida;
 import com.example.sayagymapp.DataBaseConectorPackage.DataBaseConector;
 import com.example.sayagymapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -55,12 +56,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
+                                ArrayList<RegistroComida> comidasStart = new ArrayList<>();
+                                comidasStart.add(new RegistroComida("Fecha: ---",false,false,false,false,false));
                                 ArrayList<Avance> Base = new ArrayList<Avance>();
                                 Base.add(new Avance("Nombre:  ---","Edad:  ---","Peso Inicial:  ---","Peso Meta:  ---","Hombros:  ---","Pecho:  ---","Cintura:  ---","AnteBrazo:  ---","Muslo:  ---","Pantorrilla:  ---","Biceps:  ---","Gluteos:  ---"));
                                 ArrayList<Asistencia> AsistenciasPredeterminada = new ArrayList<Asistencia>();
                                 AsistenciasPredeterminada.add(new Asistencia("Hora Entrada:  ---","Hora Salida:  ---","Rutina Realizada:  ---","Fecha Asistida:  ---"));
                                 DataBaseConector.guardarUsuario(Base,
                                         AsistenciasPredeterminada,
+                                        comidasStart,
                                         LoginActivity.EmailTxt.getText().toString());
                                 Home_ActivityStart();
                             }else{

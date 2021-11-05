@@ -12,6 +12,7 @@ import com.example.sayagymapp.ClasesSecundarias.Asistencia;
 import com.example.sayagymapp.ClasesSecundarias.Avance;
 import com.example.sayagymapp.ClasesSecundarias.Comida;
 import com.example.sayagymapp.ClasesSecundarias.Couch;
+import com.example.sayagymapp.ClasesSecundarias.RegistroComida;
 import com.example.sayagymapp.ClasesSecundarias.Rutina;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,14 +34,15 @@ public class DataBaseConector {
     public static ArrayList<Rutina> Rutinas = new ArrayList<Rutina>();
     public static ArrayList<Comida> Dieta = new ArrayList<Comida>();
     public static ArrayList<Avance> Avances = new ArrayList<Avance>();
-    public static ArrayList<HashMap> RutinasObtenidas, DietasObtenidas, AvancesObtenidos, AsistenciasObtenidas;
+    public static ArrayList<HashMap> RutinasObtenidas, DietasObtenidas, AvancesObtenidos, AsistenciasObtenidas, ComidasObtenidas;
     public static DocumentReference couchPersonalRef = null;
     public static String couchPersonal = "Nadie :(";
-    public static void guardarUsuario(ArrayList<Avance> Avances,ArrayList<Asistencia> Asistencias, String docu){
+    public static void guardarUsuario(ArrayList<Avance> Avances,ArrayList<Asistencia> Asistencias,ArrayList<RegistroComida> comidasStart, String docu){
         Map<String, Object> map = new HashMap<>();
         map.put("Couch",couchPersonalRef);
         map.put("Avances",Avances);
         map.put("Asistencias",Asistencias);
+        map.put("TiemposDeComida",comidasStart);
         db.collection("Usuarios").document(docu).set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -120,6 +122,7 @@ public class DataBaseConector {
                         }
                         AvancesObtenidos = (ArrayList<HashMap>) document.getData().get("Avances");
                         AsistenciasObtenidas = (ArrayList<HashMap>) document.getData().get("Asistencias");
+                        ComidasObtenidas = (ArrayList<HashMap>) document.getData().get("TiemposDeComida");
                     } else {
                         Toast.makeText(cnt,"El Usuario: "+HomeActivity.EmailIngresado+" no Existe en la base de datos",Toast.LENGTH_LONG).show();
                     }
@@ -176,6 +179,28 @@ public class DataBaseConector {
             Asistencia item = new Asistencia(valores[0].toString(),valores[1].toString(),valores[2].toString(),
                     valores[3].toString());
             decodificado.add(item);
+        }
+        return decodificado;
+    }
+    public static ArrayList<RegistroComida> getTiemposDeComida(){
+        ArrayList<RegistroComida> decodificado = new ArrayList<>();
+        ArrayList<HashMap> codificados = ComidasObtenidas;
+        for(HashMap m:codificados){
+            Object[] valores = m.values().toArray();
+            for(int x = 0;x<6;x++){
+                try{
+                    Boolean prueba = (Boolean) valores[x];
+                }catch(Exception e){
+                    ArrayList<Integer> indices = new ArrayList<>();
+                    indices.add(0);indices.add(1);indices.add(2);indices.add(3);indices.add(4);indices.add(5);
+                    int eliminar = indices.indexOf(x);
+                    indices.remove(eliminar);
+                    RegistroComida item = new RegistroComida(valores[x].toString(),(Boolean) valores[indices.get(0)],(Boolean)valores[indices.get(1)],
+                            (Boolean)valores[indices.get(2)],(Boolean)valores[indices.get(3)],(Boolean)valores[indices.get(4)]);
+                    decodificado.add(item);
+                    break;
+                }
+            }
         }
         return decodificado;
     }
