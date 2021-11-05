@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#DF4848"
+    style="?attr/materialButtonOutlinedStyle"
     android:orientation="vertical">
 
     <TextView
@@ -10,35 +10,43 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="#FFEB3B"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Ejercicio1view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/Ejercicio2view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/Ejercicio3view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/Ejercicio4view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/Ejercicio5view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="20sp" />
 </LinearLayout>
