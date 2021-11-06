@@ -8,7 +8,7 @@
         android:id="@+id/NombreEntrenadorTextV"
         android:layout_width="match_parent"
         android:layout_height="173dp"
-        android:background="#4168F4"
+        android:background="#B8E4DC"
         android:gravity="center"
         android:text="TextView"
         android:textColor="@color/black"

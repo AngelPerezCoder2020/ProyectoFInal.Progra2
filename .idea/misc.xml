@@ -3,6 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/drawable/cizi.xml" value="0.2203125" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/drawable/estilos_bordes.xml" value="0.2203125" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/activity_home.xml" value="0.22" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/activity_splash_bienvenida.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/fragment_avances_viewer.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/fragment_avances_viewer_list.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/fragment_couch.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/fragment_dietas_viewer.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/fragment_dietas_viewer_list.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/fragment_info_personal.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/fragment_list_entrenadores.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/fragment_list_entrenadores_list.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/fragment_nutricion.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/fragment_personal.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/fragment_registro_asistencia.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/fragment_registro_dietas.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/fragment_rutinas_list.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/fragment_rutinas_list_list.xml" value="0.17192982456140352" />
+        <entry key="..\:/Users/Alvaro J Perez/AndroidStudioProjects/ProyectoFInal.Progra2/app/src/main/res/layout/recycler_view_item.xml" value="0.17192982456140352" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/SayaGymApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/SayaGymApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/SayaGymApp/app/src/main/res/drawable/ic_outline_arrow_back_24.xml" value="0.21614583333333334" />

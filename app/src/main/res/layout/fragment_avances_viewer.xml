@@ -10,9 +10,12 @@
         android:id="@+id/titulo"
         android:layout_width="match_parent"
         android:layout_height="53dp"
-        android:background="#D84545"
+        android:background="#2196F3"
         android:gravity="center"
-        android:text="NUEVO REGISTRO " />
+        android:text="NUEVO REGISTRO "
+        android:textColor="#070303"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -24,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="TextView"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.178"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +40,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:text="TextView"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/nombre"
             app:layout_constraintTop_toBottomOf="@+id/nombre" />
 
@@ -45,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:text="TextView"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/edad"
             app:layout_constraintTop_toBottomOf="@+id/edad" />
 
@@ -54,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:text="TextView"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/pesoinicial"
             app:layout_constraintTop_toBottomOf="@+id/pesoinicial" />
 
@@ -63,6 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="TextView"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/pesometa"
             app:layout_constraintTop_toBottomOf="@+id/pesometa" />
 
@@ -72,6 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:text="TextView"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/hombros"
             app:layout_constraintTop_toBottomOf="@+id/hombros" />
 
@@ -81,6 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="TextView"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/pecho"
             app:layout_constraintTop_toBottomOf="@+id/pecho" />
 
@@ -90,6 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:text="TextView"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/cintura"
             app:layout_constraintTop_toBottomOf="@+id/cintura" />
 
@@ -99,6 +110,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:text="TextView"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/antebrazo"
             app:layout_constraintTop_toBottomOf="@+id/antebrazo" />
 
@@ -108,6 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="TextView"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/muslo"
             app:layout_constraintTop_toBottomOf="@+id/muslo" />
 
@@ -117,6 +130,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="TextView"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/pantorrilla"
             app:layout_constraintTop_toBottomOf="@+id/pantorrilla" />
 
@@ -126,6 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:text="TextView"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/biceps"
             app:layout_constraintTop_toBottomOf="@+id/biceps" />
     </androidx.constraintlayout.widget.ConstraintLayout>
