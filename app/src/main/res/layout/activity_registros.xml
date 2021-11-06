@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#40E9FF"
     android:orientation="vertical"
     tools:context=".ActivitiesPrincipales.RegistrosActivity">
 
@@ -38,5 +39,6 @@
     <FrameLayout
         android:id="@+id/ContenedorActivityTres"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:background="#40E9FF" />
 </LinearLayout>
